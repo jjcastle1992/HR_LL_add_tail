@@ -57,19 +57,26 @@ void free_singly_linked_list(SinglyLinkedListNode* node) {
  */
 SinglyLinkedListNode* insertNodeAtTail(SinglyLinkedListNode* head, int data) {
     //construct new node and set node data to passed data.
+    SinglyLinkedListNode* newTail = new SinglyLinkedListNode (data);
 
     //Check to see if the linked list is empty (i.e. head = nullptr)
-        //if so, head->next invoke the node constructor passing the data
+    if (head == nullptr) {
         //set head->next to point to our new node
-
+        head = newTail;
         //since singly linked list, no need to set a prev node for the new node.
-
         //new node -> next should be nullptr as the new tail
+        newTail->next = nullptr;
+    }
 
     //If head is not null, then a tail must already exist. Traverse until head->next = nullptr
+    else {
+        SinglyLinkedListNode* llTraversal = head;
         //set old tail next to new node
-        //set new node next-> nullptr
-
+        while (llTraversal->next != nullptr) {
+            llTraversal = llTraversal->next;
+        }
+        llTraversal->next = newTail;
+    }
     return head;
 }
 
