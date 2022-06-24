@@ -64,8 +64,6 @@ SinglyLinkedListNode* insertNodeAtTail(SinglyLinkedListNode* head, int data) {
         //set head->next to point to our new node
         head = newTail;
         //since singly linked list, no need to set a prev node for the new node.
-        //new node -> next should be nullptr as the new tail
-        newTail->next = nullptr;
     }
 
     //If head is not null, then a tail must already exist. Traverse until head->next = nullptr
